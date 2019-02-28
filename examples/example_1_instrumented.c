@@ -18,8 +18,7 @@ void *Thread1(void* x) {
 float sec=0.0;
  scanf("%f", &sec);
  if (sec >= 0 && sec <= 10) sleep(sec/10);
-printf("%f
-", sec);
+printf("%f\n", sec);
 	pthread_mutex_lock(&lock);
 	pthread_mutex_unlock(&lock);
   	return NULL;
@@ -30,8 +29,7 @@ void *Thread2(void* x) {
 float sec=0.0;
  scanf("%f", &sec);
  if (sec >= 0 && sec <= 10) sleep(sec/10);
-printf("%f
-", sec);
+printf("%f\n", sec);
   pthread_mutex_lock(&lock);
   pthread_mutex_unlock(&lock);
   Global=2;

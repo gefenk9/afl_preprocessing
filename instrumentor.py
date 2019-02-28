@@ -1,5 +1,5 @@
 
-with open('examples/example_1.c') as f:
+with open('../examples/example_1.c') as f:
     lines = f.readlines()
 
 new_lines = lines.copy()
