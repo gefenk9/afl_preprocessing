@@ -8,7 +8,7 @@ for line in lines:
         # globals
         new_lines.insert(new_lines.index(line), '#include <stdio.h>\n')
     if "pthread_mutex_lock" in line:
-        new_lines.insert(new_lines.index(line), 'float sec=0.0;\n scanf("%f", &sec);\n if (sec >= 0 && sec <= 10) sleep(sec/10);\nprintf("%f\\n", sec);\n')
+        new_lines.insert(new_lines.index(line), 'float sec=0.0;\n scanf("%f", &sec);\n if (sec >= 0 && sec <= 10) sleep(sec/10);\nprintf("\\n%f\\n", sec);\n')
 
 with open('./examples/example_1_instrumented.c', 'w') as fw:
     for line in new_lines:
