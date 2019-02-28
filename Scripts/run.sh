@@ -2,6 +2,7 @@ cd ~/Downloads/afl_preprocessing
 python3.7 ./instrumentor.py
 mkdir input
 echo "" >input/test
+rm -r output
 mkdir output
 afl-gcc examples/after/example_1_instrumented.c -pthread -fsanitize=thread
 
