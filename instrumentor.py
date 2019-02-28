@@ -17,7 +17,7 @@ for root, dirs, files in os.walk("./examples/before"):
                 new_lines.insert(new_lines.index(line), '#include <stdio.h>\n')
             for indicator in sleep_indicators:
                 if indicator in line:
-                    new_lines.insert(new_lines.index(line), 'float sec=0.0;\n scanf("%f", &sec);\n if (sec >= 0 && sec <= 10) sleep(sec/10);\n')
+                    new_lines.insert(new_lines.index(line), 'float sec=0.0;\n scanf("%f", &sec);\n if (sec >= 0 && sec <= 1) sleep(sec/10);\n')
 
         with open('./examples/after/'+name.split('.')[0]+'_instrumented.c', 'w') as fw:
             for line in new_lines:

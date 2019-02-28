@@ -15,7 +15,7 @@ void *Thread1(void* x) {
 	Global=1;
 float sec=0.0;
  scanf("%f", &sec);
- if (sec >= 0 && sec <= 10) sleep(sec/10);
+ if (sec >= 0 && sec <= 1) sleep(sec/10);
 	pthread_mutex_lock(&lock);
 	pthread_mutex_unlock(&lock);
   	return NULL;
@@ -24,7 +24,7 @@ float sec=0.0;
 void *Thread2(void* x) {
 float sec=0.0;
  scanf("%f", &sec);
- if (sec >= 0 && sec <= 10) sleep(sec/10);
+ if (sec >= 0 && sec <= 1) sleep(sec/10);
   pthread_mutex_lock(&lock);
   pthread_mutex_unlock(&lock);
   Global=2;
