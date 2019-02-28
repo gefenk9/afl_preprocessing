@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
-
 #include <pthread.h>
 #include <stdio.h>
 
@@ -13,14 +12,12 @@ pthread_mutex_t lock;
 void *Thread1(void* x) {
 
 	Global=1;
-	//sleep(sleep_sec);
 	pthread_mutex_lock(&lock);
 	pthread_mutex_unlock(&lock);
   	return NULL;
 }
 
 void *Thread2(void* x) {
-  //sleep(sleep_sec);
   pthread_mutex_lock(&lock);
   pthread_mutex_unlock(&lock);
   Global=2;

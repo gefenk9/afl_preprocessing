@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
-
 #include <pthread.h>
 #include <stdio.h>
 
@@ -14,7 +13,6 @@ pthread_mutex_t lock;
 void *Thread1(void* x) {
 
 	Global=1;
-	//sleep(sleep_sec);
 float sec=0.0;
  scanf("%f", &sec);
  if (sec >= 0 && sec <= 10) sleep(sec/10);
@@ -24,7 +22,6 @@ float sec=0.0;
 }
 
 void *Thread2(void* x) {
-  //sleep(sleep_sec);
 float sec=0.0;
  scanf("%f", &sec);
  if (sec >= 0 && sec <= 10) sleep(sec/10);
