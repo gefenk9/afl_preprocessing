@@ -1,4 +1,5 @@
 #include <stdio.h>
+ #include <unistd.h>
 #include <string.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -7,14 +8,13 @@
 #include <stdio.h>
 
 int Global;
-int sleep_sec = 1;
 pthread_mutex_t lock;
 
 void *Thread1(void* x) {
 
 	Global=1;
 {char sec=getchar();
- if (sec >= 0x31 && sec <= 0x32) sleep(sec-0x31);
+ if (sec >= 0x30 && sec <= 0x39) usleep(11);
 }	pthread_mutex_lock(&lock);
 	pthread_mutex_unlock(&lock);
   	return NULL;
@@ -22,7 +22,7 @@ void *Thread1(void* x) {
 
 void *Thread2(void* x) {
 {char sec=getchar();
- if (sec >= 0x31 && sec <= 0x32) sleep(sec-0x31);
+ if (sec >= 0x30 && sec <= 0x39) usleep(11);
 }  pthread_mutex_lock(&lock);
   pthread_mutex_unlock(&lock);
   Global=2;

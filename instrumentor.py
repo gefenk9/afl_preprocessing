@@ -14,10 +14,10 @@ for root, dirs, files in os.walk("./examples/before"):
         for line in lines:
             if lines.index(line) == 0:
                 # globals
-                new_lines.insert(new_lines.index(line), '#include <stdio.h>\n')
+                new_lines.insert(new_lines.index(line), '#include <stdio.h>\n #include <unistd.h>\n')
             for indicator in sleep_indicators:
                 if indicator in line:
-                    new_lines.insert(new_lines.index(line), '{char sec=getchar();\n if (sec >= 0x31 && sec <= 0x32) sleep(sec-0x31);\n}')
+                    new_lines.insert(new_lines.index(line), '{char sec=getchar();\n if (sec >= 0x30 && sec <= 0x39) usleep(11);\n}')
 
         with open('./examples/after/'+name.split('.')[0]+'_instrumented.c', 'w') as fw:
             for line in new_lines:

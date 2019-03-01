@@ -10,16 +10,18 @@ pthread_mutex_t lock;
 
 void *Thread1(void* x) {
 
-	Global=1;
+
 	pthread_mutex_lock(&lock);
+	Global=1;
 	pthread_mutex_unlock(&lock);
   	return NULL;
 }
 
 void *Thread2(void* x) {
   pthread_mutex_lock(&lock);
-  pthread_mutex_unlock(&lock);
   Global=2;
+  pthread_mutex_unlock(&lock);
+
   return NULL;
 }
 
