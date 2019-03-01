@@ -13,19 +13,17 @@ pthread_mutex_t lock;
 void *Thread1(void* x) {
 
 	Global=1;
-float sec=0.0;
- scanf("%f", &sec);
- if (sec >= 0 && sec <= 1) sleep(sec);
-	pthread_mutex_lock(&lock);
+{char sec=getchar();
+ if (sec >= 0x31 && sec <= 0x32) sleep(sec-0x31);
+}	pthread_mutex_lock(&lock);
 	pthread_mutex_unlock(&lock);
   	return NULL;
 }
 
 void *Thread2(void* x) {
-float sec=0.0;
- scanf("%f", &sec);
- if (sec >= 0 && sec <= 1) sleep(sec);
-  pthread_mutex_lock(&lock);
+{char sec=getchar();
+ if (sec >= 0x31 && sec <= 0x32) sleep(sec-0x31);
+}  pthread_mutex_lock(&lock);
   pthread_mutex_unlock(&lock);
   Global=2;
   return NULL;
@@ -37,7 +35,7 @@ int main(int argc, char *argv[])
 	char *out;
 
 	// Slurp input
-	if (read(STDIN_FILENO, input, 100) < 0) {
+	if (read(STDIN_FILENO, input, 1) < 0) {
 		fprintf(stderr, "Couldn't read stdin.\n");
 	}
 	if(input[0] == 'c') {
@@ -47,7 +45,7 @@ int main(int argc, char *argv[])
 		strcat(out, input+1);
 		printf("%s", out);
 		free(out);
-	} else if (strcmp(input, "\n") == 0) {
+	} else if (strcmp(input, "0") == 0) {
 		  pthread_mutex_init(&lock, NULL);
 		  pthread_t t[2];
 		  pthread_create(&t[0], NULL, Thread1, NULL);
