@@ -1,6 +1,6 @@
 import os
 
-sleep_indicators = ["pthread_mutex_lock"]
+sleep_indicators = ["pthread_mutex_lock" ,"pthread_mutex_wait", "pthread_mutex_sleep"]
 
 for root, dirs, files in os.walk("./examples/before"):
     for name in files:
