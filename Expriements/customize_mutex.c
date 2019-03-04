@@ -8,7 +8,6 @@
 
 int Global;
 int sleep_sec = 1;
-pthread_mutex_t lock;
 int G_lock = 0;
 
 void enterLock(int* i_lock){   
