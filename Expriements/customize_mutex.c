@@ -23,20 +23,20 @@ void leaveLock(int* i_lock){
 void *Thread1(void* x) {
   	
 	Global=1;
-//enterLock(&G_lock);
-//leaveLock(&G_lock);
+enterLock(&G_lock);
+leaveLock(&G_lock);
 	//sleep(sleep_sec);
-	pthread_mutex_lock(&lock);
-	pthread_mutex_unlock(&lock);
+//	pthread_mutex_lock(&lock);
+//	pthread_mutex_unlock(&lock);
   	return NULL;
 }
 
 void *Thread2(void* x) {
   //sleep(sleep_sec);
-  pthread_mutex_lock(&lock);
-  pthread_mutex_unlock(&lock);  
-//enterLock(&G_lock);
-//leaveLock(&G_lock);
+//  pthread_mutex_lock(&lock);
+  //pthread_mutex_unlock(&lock);
+enterLock(&G_lock);
+leaveLock(&G_lock);
   Global=2;  
   return NULL;
 }
