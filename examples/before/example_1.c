@@ -9,7 +9,6 @@ int Global;
 pthread_mutex_t lock;
 
 void *Thread1(void* x) {
-
 	Global=1;
 	pthread_mutex_lock(&lock);
 	pthread_mutex_unlock(&lock);
